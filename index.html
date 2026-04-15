@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Página principal del Club de Lectura">
+    <meta name="author" content="Your Name">
+    <meta name="keywords" content="club de lectura, leer, literatura, libros">
+    <title>Club de Lectura</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!--
+    Rutas relativas:
+    1. '.':
+        Representa el directorio actual.
+
+    2. './':
+        También apunta al directorio actual, pero se usa para iniciar una ruta relativa explícita.
+    Ejemplo: ./pages/contacto.html
+
+    3.  '/':
+        Apunta a la raíz del sitio (ruta absoluta dentro del dominio), no al directorio actual.
+    Ejemplo: /css/styles.css
+
+    4. Subir niveles:
+    ../   -> sube 1 nivel desde la carpeta actual
+    ../../ -> sube 2 niveles
+    ../../../ -> sube 3 niveles, etc.
+
+    Ejemplo desde /pages/eventos.html:
+    ../index.html      -> vuelve a la raíz del proyecto y abre index.html
+    ../css/styles.css  -> accede al CSS en la carpeta css
+    -->
+
+    <script defer src="./js/i18n/translations.js"></script> 
+    <script defer src="./js/i18n/i18n.js"></script>
+</head>
+
+<body>
+    
+    <div class="language-box"> 
+        <label for="language-switcher" data-i18n="common.language.label">Language</label> 
+        <select id="language-switcher" onchange="setLocale(this.value)"> 
+            <option value="es" data-i18n="common.language.spanish">Español</option> 
+            <option value="en" data-i18n="common.language.english">English</option> 
+        </select> 
+    </div>
+
+    <section>
+            <h2 data-i18n="site.title">Bienvenido al Club de Lectura</h2> 
+    </section>
+
+    <header>
+       <nav> 
+            <ul> 
+                <li><a href="index.html" data-i18n="navigation.home">Inicio</a></li> 
+                <li><a href="index.html#books" data-i18n="navigation.books">Libros</a></li> 
+                <li><a href="pages/eventos.html" data-i18n="navigation.events">Encuentros</a></li> 
+                <li><a href="pages/contacto.html" data-i18n="navigation.contact">Contacto</a></li> 
+            </ul> 
+        </nav> 
+    </header>
+    <main class="responsive">
+
+        <section id="about">
+            <h2 data-i18n="about.title">Sobre Nosotros</h2>
+            <p data-i18n="about.info">Somos un grupo de amantes de los libros que se reúnen mensualmente para debatir sus últimas lecturas.
+                Nuestro club está abierto a todos los aficionados a la lectura y damos la bienvenida a los nuevos
+                miembros con los brazos abiertos.</p>
+
+            <p> <span data-i18n="events.monthlyMeeting.dateLabel">Fecha:</span> 
+                <em id="monthly-meeting-date" data-date="2026-07-15T19:00:00"></em> 
+            </p>
+            <p> <span data-i18n="events.monthlyMeeting.feeLabel">Cuota:</span> 
+                <em id="monthly-meeting-fee" data-fee="12.5"></em> 
+            </p> 
+        </section>
+
+        <section class="club-info"> 
+            <h2 data-i18n="events.monthlyMeeting.summaryTitle"> 
+               Próximo encuentro </h2> 
+            <p id="meeting-summary"></p> 
+        </section> 
+
+        <article id="mission">
+            <h2>Nuestra Misión</h2>
+            <p>Nuestra misión es fomentar el amor por la lectura y crear una comunidad de lectores que puedan compartir
+                sus pensamientos e ideas.</p>
+        </article>
+
+        <section id="books">
+            <h2>Libros que Amamos</h2>
+            <ol class="books-list">
+                <li>"Matar a un Ruiseñor" de Harper Lee</li>
+                <li>"1984" de George Orwell</li>
+                <li>"Orgullo y Prejuicio" de Jane Austen</li>
+                <li>"El Gran Gatsby" de F. Scott Fitzgerald</li>
+            </ol>
+        </section>
+
+        <section id="events">
+            <h2>Próximos Eventos</h2>
+            <p>Únete a nosotros en nuestra <a href="./pages/eventos.html">próxima reunión</a> el 15 de julio, donde
+                debatiremos "Matar a un Ruiseñor". También tenemos <a href="./pages/eventos.html#charla-jane-doe">una
+                    charla especial</a> con la autora local Jane Doe programada para el 30 de agosto.</p>
+        </section>
+
+        <section id="poems">
+            <p class="rumi">
+                Love is the wine of the soul, <br>
+                and the beloved is the cup.<br>
+                Drink deeply, for this is life.
+            </p>
+            <p id="byron">
+                The sun is warm, the sky is clear,<br>
+                the waves are dancing free;<br>
+                the birds are singing everywhere,<br>
+                how happy we can be!
+            </p>
+        </section>
+
+       
+
+        <section id="contact">
+            <h2>Contáctenos</h2>
+            <p>Si tienes alguna pregunta o te gustaría unirte a nuestro club, por favor <a href="./pages/contacto.html"
+                    target="_self">usa este formulario</a>.</p>
+        </section>
+
+
+    </main>
+
+    <footer>
+        <img src="./resources/images/bookclublogo.jpg" alt="Logo del Club de Lectura" title="Club de Lectura"
+            width="100" height="100">
+        <p>&copy; 2026 Club de Lectura. Todos los derechos reservados.</p>
+    </footer>
+</body>
+
+</html>

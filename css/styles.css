@@ -1,0 +1,305 @@
+body {
+    /* Ejercicio 1 */
+    font-size: 1rem;
+    /* Podemos especificar varias, para que el navegador las use en orden de preferencia */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+    /* Ejercicio 2 */
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ejercicio 3 */
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    /* Si especifico uno, es para todos.
+    Si especifico 2 es (arriba, abajo), (dcha, izquierda) 
+    Si especifico 3 es (arriba, abajo, izquierda/dcha) 
+    Si especifico 4 es en el sentido de las agujas del reloj*/
+    margin: 1.5rem 0 1rem;
+    padding: 0.5rem;
+}
+
+h2 {
+    font-size: 1.75rem;
+    margin: 1.5rem 0 1rem;
+    padding: 1rem;
+}
+
+.language-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin: 0.25rem 0.5rem 0.9rem;
+    padding: 0.25rem 0.45rem;
+    background-color: #f7f9fc;
+    border: 1px solid #d6deea;
+    border-radius: 8px;
+}
+
+.language-box label {
+    font-family: Arial, sans-serif;
+    font-size: 0.86rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    text-transform: none;
+    color: #2f445c;
+}
+
+.language-box select {
+    width: auto;
+    min-width: 8.5rem;
+    margin: 0;
+    padding: 0.3rem 0.45rem;
+    border: 1px solid #b8c8db;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: #24374a;
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.2;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.language-box select:focus {
+    border-color: #5f86af;
+    box-shadow: 0 0 0 2px rgba(95, 134, 175, 0.2);
+}
+
+.language-box select:hover {
+    border-color: #8ea8c5;
+}
+
+/* Ejercicio 4 */
+main {
+    width: 85vw;
+    /* Elimina los márgenes verticales, y distribuye el izquierdo y derecho automáticamente */
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Ejercicio 6 */
+.rumi {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    background-color: #f9f7f2;
+    /* Extra, como ajustar el ancho al contenido: */
+    width: fit-content;
+}
+
+#byron { 
+    line-height: 1.3;
+    margin: 1rem 0;
+    padding: 0.8rem;
+    border: 0.5px solid #ccc;
+    background-color: #f5f8ff;
+    width: fit-content;
+}
+
+/* Ejercicio 8 */
+/* Eliminamos el estilo por defecto de la lista desordenada */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+/* Convertimos el menú en horizontal */
+nav li {
+    display: inline-block;
+}
+
+/* Modificamos los links para que se comporten como botones */
+nav a {
+    display: inline-block;
+    padding: 0.6rem 1rem;
+    margin: 0.2rem;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    color: white;
+    background-color: steelblue;
+    border-radius: 5px;
+}
+/* Estado hover */
+nav a:hover {
+    background-color: darkslateblue;
+}
+
+/* Ejercicio 9 */
+.books-list {
+    list-style-type: lower-roman;
+    list-style-position: inside;
+    line-height: 1.5rem;
+    margin-left: 1rem;
+}
+
+/* Ejercicio 11 */
+
+/* general form font */
+form {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+}
+
+/* consistent style for controls */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+    width: 100%;
+    padding: 0.5em;
+    margin: 0.4em 0 1em 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+/* focus style (active field) */
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: steelblue;
+    background-color: #f0f6ff;
+}
+
+/* visually identify required fields */
+input:required,
+textarea:required,
+select:required {
+    border-left: 4px solid #ff9800;
+}
+
+/* fieldset styling */
+fieldset {
+    margin-bottom: 1.2em;
+    padding: 1em;
+    border: 1px solid #ccc;
+}
+
+/* buttons */
+button {
+    padding: 0.6em 1em;
+    margin-right: 0.5em;
+    border: none;
+    background-color: steelblue;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkslateblue;
+}
+
+/* Alineamos radio buttons y checkboxes con las labels */
+.option { 
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    margin-bottom: 0.4em;
+}
+
+/* Ejercicio 12 */
+.responsive {
+    width: 80%;
+    margin: 0 auto;
+    padding: 1em;
+}
+
+/* Ejercicio 3 JS: Estados visuales de validez */
+input.valid, textarea.valid, select.valid {
+    border-color: green;
+    box-shadow: 0 0 0 3px rgba(0, 128, 0, 0.08);
+}
+
+input.invalid, textarea.invalid, select.invalid {
+    border-color: crimson;
+    box-shadow: 0 0 0 3px rgba(220, 20, 60, 0.06);
+}
+
+/* Contenedor de errores personalizados */
+.error-box {
+    color: #b00020;
+    background-color: #fce4e4;
+    border: 0.08em solid #f5c2c7;
+    border-radius: 0.375em;
+    font-family: Arial, sans-serif;
+    font-size: 0.95em;
+    padding: 0.625em 0.9375em;
+    margin-top: 0.75em;
+    line-height: 1.4;
+    display: none;
+}
+
+.error-box.visible {
+    display: block;
+}
+
+/* Efecto de resaltado para interacción con teclado */
+.highlight {
+    background-color: #f0f8ff; /* resaltado azul claro */
+}
+
+button.highlight {
+    background-color: #005fcc; /* azul más oscuro para mayor contraste */
+    color: #ffffff; /* blanco para legibilidad */
+    border: 0.15em solid #003f8a; /* borde más oscuro para definición */
+    font-weight: bold; /* énfasis visual más fuerte */
+}
+
+/* Efecto hover para eventos de ratón */
+input, textarea {
+    transition: background-color 0.2s;
+}
+
+.highlight {
+    background-color: #f0f8ff; /* Resaltado azul claro */
+}
+
+/* layout adapts on smaller screens */
+@media (max-width: 768px) {
+    .responsive {
+        width: 90%;
+        padding: 0.8em;
+    }
+
+    .language-box {
+        display: flex;
+        justify-content: space-between;
+        width: min(100%, 20rem);
+        border-radius: 8px;
+    }
+
+    .language-box select {
+        min-width: 8rem;
+    }
+}
+
+/* very narrow screens (mobile) */
+@media (max-width: 480px) {
+    .responsive {
+        width: 100%;
+        padding: 0.6em;
+    }
+
+    .language-box {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .language-box label {
+        font-size: 0.78rem;
+    }
+
+    .language-box select {
+        width: 100%;
+        min-width: 0;
+    }
+}

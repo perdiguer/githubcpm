@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Información de contacto del Club de Lectura">
+    <meta name="author" content="Your Name">
+    <meta name="keywords" content="club de lectura, leer, literatura, libros">
+    <title>Contáctenos - Club de Lectura</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/myJS.js" defer></script>
+
+    <script defer src="../js/i18n/translations.js"></script> 
+    <script defer src="../js/i18n/i18n.js"></script>
+</head>
+
+<body>
+    <div class="language-box"> 
+        <label for="language-switcher" data-i18n="common.language.label">Language</label> 
+        <select id="language-switcher"> 
+        <option value="es" data-i18n="common.language.spanish">Español</option> 
+        <option value="en" data-i18n="common.language.english">English</option> 
+        </select> 
+    </div>
+    <header>
+        <h1>Contáctenos</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../index.html#books">Libros</a></li>
+                <li><a href="eventos.html">Encuentros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="responsive">
+        <h2>Ponte en Contacto</h2>
+        <section>
+	<form action="mailto:info@bookclub.com?subject=Formulario%20de%20Contacto" onkeydown="handleKeydown(event)" onsubmit="return validateForm();" method="post">
+            <fieldset>
+                <legend>Información de Contacto</legend>
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" required oninput="updatePreview(); checkValidityState(this)" onmouseover="handleMouseOver(this)" onmouseout="handleMouseOut(this)">
+                    <label for="phone">Teléfono:</label>
+                    <input type="tel" id="phone" name="phone" pattern="^(\+34|0034|34)?[67][0-9]{8}$" required
+                        oninput="updatePreview(); checkValidityState(this)" onmouseover="handleMouseOver(this)" onmouseout="handleMouseOut(this)">
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" id="email" name="email" required oninput="updatePreview(); checkValidityState(this)" onmouseover="handleMouseOver(this)" onmouseout="handleMouseOut(this)">
+            </fieldset>
+
+
+            <fieldset>
+                <legend>¿Cómo nos has encontrado?</legend>
+
+                <label for="friend" class="option">Amigo o conocido
+                    <input type="radio" id="friend" name="discovery" value="friend" onchange="updatePreview()">
+                </label>
+
+                <label for="social" class="option">Redes sociales
+                    <input type="radio" id="social" name="discovery" value="social" onchange="updatePreview()">
+                </label>
+
+                <label for="search" class="option">Buscador web
+                    <input type="radio" id="search" name="discovery" value="search" onchange="updatePreview()">
+                </label>
+            </fieldset>
+
+
+            <fieldset>
+                <legend>Intereses</legend>
+
+                <label for="fiction" class="option">Ficción
+                    <input type="checkbox" id="fiction" name="interests" value="fiction" onchange="updatePreview()">
+                </label>
+
+                <label for="nonfiction" class="option">No ficción
+                    <input type="checkbox" id="nonfiction" name="interests" value="nonfiction"
+                        onchange="updatePreview()">
+                </label>
+
+                <label for="mystery" class="option">Misterio
+                    <input type="checkbox" id="mystery" name="interests" value="mystery" onchange="updatePreview()">
+                </label>
+
+                <br>
+
+                <label for="category">Categoría:</label>
+                <select id="category" name="category" onchange="updatePreview()">
+                    <!-- Añadimos un placeholder de forma artificial al select.
+                     De forma nativa los select no tienen placeholder -->
+                    <option value="" disabled selected hidden>Selecciona un elemento...</option>
+                    <optgroup label="Ficción">
+                        <option value="novel">Novela</option>
+                        <option value="short-stories">Historias cortas</option>
+                    </optgroup>
+
+                    <optgroup label="No ficción">
+                        <option value="biography">Biografía</option>
+                        <option value="history">Historia</option>
+                    </optgroup>
+
+                </select>
+
+            </fieldset>
+
+            <fieldset>
+                <legend>Comentarios adicionales</legend>
+                <label for="message">Mensaje:</label>
+                <textarea id="message" name="message" required placeholder="Escribe tu mensaje aquí..." rows="5"
+                    cols="40" oninput="updatePreview(); checkValidityState(this)" onmouseover="handleMouseOver(this)" onmouseout="handleMouseOut(this)"></textarea>
+            </fieldset>
+
+            <!-- Contenedor de errores -->
+            <div id="error-box" class="error-box"></div>
+
+            <button class="btn" id="submit-btn" type="submit">Enviar Mensaje</button>
+            <button class="btn" id="reset-btn" type="reset">Restablecer</button>
+            </form>
+
+            <div id="preview"></div>
+        </section>
+
+        </main>
+
+    <footer>
+        <figure>
+            <a href="../index.html">
+                <img src="../resources/images/bookclublogo.jpg" alt="Logo del Club de Lectura" title="Club de Lectura"
+                    width="100" height="100">
+            </a>
+            <figcaption>Logo del Club de Lectura</figcaption>
+        </figure>
+
+        <p>&copy; 2026 Club de Lectura. Todos los derechos reservados.</p>
+    </footer>
+</body>
+
+</html>
