@@ -1,4 +1,7 @@
 const form = document.querySelector('form');
+const supabaseUr1 = 'https://jgufrobnnfxqcnfnpies.supabase.co';
+const supabaseKey = 'sb_publishable_As7V2DPGP864JQzQCjL14Q_DUZBMJoP';
+const db = supabase.createClient(supabaseUr1,supabaseKey);
 
 if (!form) {
     throw new Error('No form found on this page.');
