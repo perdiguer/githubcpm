@@ -35,29 +35,51 @@ function checkValidityState(field) {
 }
 
 function validateForm() {
+    if(event){
+        event.preventDefault();
+    }
     // Limpiar el contenedor de errores
     const errorBox = document.getElementById('error-box');
     errorBox.textContent = '';
-    errorBox.classList.remove('visible');
+    sendSupabaseForm(errorBox);
 
-    // La validación nativa se ejecuta automáticamente
-    // porque el formulario tiene atributos required/type
-    if (!form.reportValidity()) {
-        return false; // el navegador mostrará sus
-        // mensajes nativos de validación
-    }
-
-    // Validación personalizada entre campos
-    const customError = checkCustomRules();
-    if (customError) {
-        errorBox.textContent = customError;
-        errorBox.classList.add('visible');
-        return false;
-    }
-
-    return true; // permitir envío
+    return true; //permitir envio
 }
 
+async function sendSupabaseForm(errorBox) { 
+ const name = document.getElementById('name').value.trim(); 
+ const phone = document.getElementById('phone').value.trim(); 
+ const email = document.getElementById('email').value.trim(); 
+ const category = document.getElementById('category').value; 
+ const message = document.getElementById('message').value.trim(); 
+ const discoverySelected = document.querySelector('input[name="discovery"]:checked'); 
+ const discovery = discoverySelected ? discoverySelected.value : null; 
+ const interests = Array.from( document.querySelectorAll('input[name="interests"]:checked') )
+     .map(item => item.value).join(', '); 
+ const { error } = await db.from('contact_messages')
+     .insert([ { 
+         name: name, 
+         phone: phone, 
+         email: email, 
+         discovery: discovery, 
+         interests: interests, 
+         category: category, 
+         message: message 
+     }]); 
+    
+ errorBox.classList.add('visible'); 
+ if (error) { errorBox.textContent = 'Error al guardar el mensaje: '+ error.message; 
+         return; 
+     } 
+ errorBox.style.color = 'green'; 
+ errorBox.textContent = 'Mensaje enviado y guardado correctamente.'; 
+ form.reset(); 
+    
+ const preview = document.getElementById('preview'); 
+ if (preview) { 
+    preview.innerHTML = '';
+ }
+}
 function checkCustomRules() {
     // Validación personalizada: si selecciona "Amigo o conocido", el mensaje debe incluir "amigo"
     const friendSelected = document.querySelector('#friend').checked;
